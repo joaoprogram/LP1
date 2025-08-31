@@ -1,0 +1,47 @@
+1.
+O que é um tipo de dados?
+Um tipo de dado é a natureza ou classificação de uma informação, como número, texto (string) ou valor lógico (booleano).
+
+Para que servem os tipos?
+Servem para evitar operações inválidas, documentar o código, escolher representações adequadas pelo tamanho e melhorar o desempenho do programa.
+
+2.
+Considere o programa a seguir:
+
+#include <stdio.h>
+void main (void) {
+    printf("Soma = %d\n", 100-"10");
+}
+
+O que você espera que aconteça ao compilar o programa? Por quê?
+O programa não compila, porque a expressão 100 - "10" tenta subtrair um número inteiro de uma string.
+
+Quais são os tipos dos operandos na operação de subtração?
+int e char
+
+Transcreva a mensagem de erro de compilação e a explique.
+main.c: In function ‘main’:
+main.c:3:30: error: invalid operands to binary - (have ‘int’ and ‘char *’)
+    3 |     printf("Soma = %d\n", 100-"10");
+      |                              ^
+      |                              |
+      |                              char *
+
+o operador - não está definido para um inteiro e um ponteiro para caractere, por isso o compilador rejeita a operação inválida.
+
+4.
+Qual é a diferença entre tipagem estática e dinâmica?
+Tipagem estática significa que o tipo das variáveis é definido antes de o programa rodar, durante a compilação, e não pode mudar depois. 
+Já a tipagem dinâmica permite que o tipo seja definido apenas enquanto o programa está sendo executado, podendo até variar ao longo do código.
+
+Dê exemplos de linguagens que usem tipagem estática e exemplos de linguagens que usem tipagem dinâmica.
+tipagem estática: C/C++
+tipagem dinâmica: python e javascript
+
+Por quê uma linguagem com tipagem estática é tipicamente mais rápida do que uma com tipagem dinâmica? Justifique usando um exemplo.
+Uma linguagem com tipagem estática costuma ser mais rápida porque o compilador já sabe exatamente quais tipos de dados serão usados e 
+consegue gerar instruções otimizadas direto para a máquina. Em contrapartida, nas linguagens dinâmicas o computador precisa descobrir e 
+verificar os tipos durante a execução, o que exige mais tempo de processamento.
+Por exemplo, em C, se eu somo dois inteiros, o compilador já gera o código pronto para somar inteiros. Mas em Python, ao somar dois valores,
+o programa precisa primeiro checar se eles são números, strings ou outro tipo que aceite soma, só então realizar a operação, o que naturalmente deixa a execução mais lenta.
+
